@@ -5,6 +5,7 @@
 - java 8
 - gradle 4.10
 - spring boot version 2.1.7
+- Junit4 (4버전에서는 이 애너테이션 필수 - @RunWith(SpringRunner.class))
 
 ## 프로젝트 설정
 
