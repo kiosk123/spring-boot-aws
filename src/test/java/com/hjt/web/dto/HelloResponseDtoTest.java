@@ -1,6 +1,7 @@
 package com.hjt.web.dto;
 
 import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
 
@@ -17,8 +18,9 @@ public class HelloResponseDtoTest {
         HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         //then
-        assertEquals(dto.getName(), name);
-        assertEquals(dto.getAmount(), amount);
-        
+        // assertEquals(dto.getName(), name);
+        // assertEquals(dto.getAmount(), amount);
+        assertThat(dto.getName()).isEqualTo(name);
+        assertThat(dto.getAmount()).isEqualTo(amount);
     }
 }
