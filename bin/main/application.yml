@@ -8,13 +8,6 @@ spring:
         max-page-size: 50
         default-page-size: 20
         
-server:
-  servlet:
-    encoding:
-      force: true
-      enabled: true
-      charset: UTF-8
-
 logging:
   level:
     com.hjt: debug 
