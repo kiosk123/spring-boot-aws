@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-App<spring-boot-aws>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hjt.App",
+            "projectName": "spring-boot-aws",
+            "args": ""
+        }
+    ]
+}
