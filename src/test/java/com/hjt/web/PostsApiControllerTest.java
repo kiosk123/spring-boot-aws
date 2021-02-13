@@ -4,9 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.hjt.domain.posts.Posts;
 import com.hjt.domain.posts.PostsRepository;
 import com.hjt.web.dto.PostsSaveRequestDto;
+import com.hjt.web.dto.PostsUpdateRequestDto;
 
 import org.junit.After;
 import org.junit.Test;
@@ -52,8 +55,10 @@ public class PostsApiControllerTest {
                                                 .build();
         String url = "http://localhost:" + port + "/api/v1/posts";
 
-        HttpEntity<PostsSaveRequestDto> request = new HttpEntity<>(requestDto);
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, request, Long.class);
+        // HttpEntity<PostsSaveRequestDto> request = new HttpEntity<>(requestDto);
+        // ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, request, Long.class);
+
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
@@ -61,5 +66,29 @@ public class PostsApiControllerTest {
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+    }
+
+    @Test
+    public void PostsIsUpdated() throws Exception {
+        Posts newPosts = Posts.builder().title("title").content("content").author("author").build();
+        Posts savedPosts = postsRepository.save(newPosts);
+        Long updateId = savedPosts.getId();
+        String expectedTitle = "title2";
+        String expectedContent = "content2";
+
+        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder().title(expectedTitle).content(expectedContent).build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
+
+        HttpEntity<PostsUpdateRequestDto> request = new HttpEntity<>(requestDto);
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, request, Long.class);
+
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isGreaterThan(0L);
+        List<Posts> all = postsRepository.findAll();
+        assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
+        assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
+
     }
 }
