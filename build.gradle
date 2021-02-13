@@ -32,5 +32,8 @@ dependencies {
     compile('com.h2database:h2')
     //mustache template engine
     compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    //oauth2 client - spring-security-oauth2-client, spring-security-oauth2-jose 포함
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

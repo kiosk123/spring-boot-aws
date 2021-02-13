@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "com.hjt.domain.user.Main",
+            "projectName": "spring-boot-aws"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-App<spring-boot-aws>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
