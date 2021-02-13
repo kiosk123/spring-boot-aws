@@ -83,7 +83,7 @@ scope=profile,email
 - Google 승인된 리디렉션 URI란?
   - 서비스에서 파라미터로 인증 정보를 주었을 때 인증이 성공하면 구글에서 리다이렉트할 URL다
   - 스프링 부트 2 버전의 시큐리티에서는 기본적으로 {도메인}/login/oauth2/code/{소셜서비스코드}로 리다이렉트 URL를 지원한다.
-  - 사용자가 별도록 리다이렉트 URL를 지원하는 Controller를 만들 필요가 없다. 시큐리티에서 이미 구현해 놓은 상태
+  - 사용자가 별도로 리다이렉트 URL를 지원하는 Controller를 만들 필요가 없다. 시큐리티에서 이미 구현해 놓은 상태
   - 이 프로젝트는 테스트 용이기 때문에 http://localhost:8080/login/oauth2/code/google로만 사용함
   - AWS 서버에 배포하게 되면 localhost외 추가로 주소를 추가해야함
 
