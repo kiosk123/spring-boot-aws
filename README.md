@@ -101,6 +101,17 @@ scope=profile,email
   - com.hjt.config.oauth.LoginUserArgumentResolver - HandlerMethodArgumentResolver 구현체
   - com.hjt.config.WebConfig - LoginUserArgumentResolver 설정
 
+- 스프링 세션 저장소를 데이터베이스로 사용하기 위해 build.gradle에 라이브러리 설정 후 yml파일에 옵션 설정
+  - JPA로 인해 SPRING_SESSION, SPRING_SESSION_ATTRIBUTES 테이블이 생성됨
+  - 테이블 생성 스키마는 여기서 [확인](https://github.com/spring-projects/spring-session/tree/master/spring-session-jdbc/src/main/resources/org/springframework/session/jdbc)
+```gradle
+  compile('org.springframework.session:spring-session-jdbc')
+```
+
+```yml
+  session:
+    store-type: jdbc
+```
 ### 프로젝트 팁
 
 - CSS는 HTML 페이지 위쪽에 js및 js 관련 라이브러리는 HTML 페이지 아래쪽에 위치시킨다.

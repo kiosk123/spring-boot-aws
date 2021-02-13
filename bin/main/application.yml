@@ -21,6 +21,10 @@ logging:
 spring:
   profiles:
   - test
+
+  session:
+    store-type: jdbc
+    
   datasource:
     url: jdbc:h2:mem:spring-boot-aws
     
@@ -52,7 +56,7 @@ spring:
     
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         show_sql: true
