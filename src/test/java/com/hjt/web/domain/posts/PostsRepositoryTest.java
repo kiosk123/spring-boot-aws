@@ -1,5 +1,12 @@
 package com.hjt.web.domain.posts;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
+import com.hjt.domain.posts.Posts;
+import com.hjt.domain.posts.PostsRepository;
+
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,15 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.assertj.core.api.Assertions.*;
-
-import java.util.List;
-
-import javax.swing.Spring;
-
-import com.hjt.domain.posts.PostsRepository;
-import com.hjt.domain.posts.Posts;
 
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = {"test"})
