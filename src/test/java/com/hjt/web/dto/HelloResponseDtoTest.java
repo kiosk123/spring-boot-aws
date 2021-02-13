@@ -1,6 +1,5 @@
 package com.hjt.web.dto;
 
-import static org.junit.Assert.assertEquals;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
