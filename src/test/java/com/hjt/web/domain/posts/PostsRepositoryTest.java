@@ -2,6 +2,7 @@ package com.hjt.web.domain.posts;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.hjt.domain.posts.Posts;
@@ -44,5 +45,19 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
     }
-    
+
+    @Test
+    public void baseTimeEntityTest() {
+        LocalDateTime now = LocalDateTime.of(2021, 2, 12, 0, 0, 0);
+        Posts newPosts = Posts.builder().title("title").content("content").author("author").build();
+        postsRepository.save(newPosts);
+
+        List<Posts> postsList = postsRepository.findAll();
+        Posts posts = postsList.get(0);
+        
+        System.out.println(">>>>>>>>>>>>>> createDate = " + posts.getCreatedDate() + ", modifiedDate = " + posts.getModifiedDate());
+
+        assertThat(posts.getCreatedDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
+    }
 }

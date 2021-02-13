@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.hjt.domain.BaseTimeEntity;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
-public class Posts {
+public class Posts extends BaseTimeEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

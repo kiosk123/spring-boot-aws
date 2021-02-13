@@ -19,4 +19,6 @@ cd <spring-boot-aws>경로
 ./gradlew wrapper --gradle-version 4.10.2
 ```
 
-스프링 부트 버전은 2.1.7 , 2.1.8., 2.1.9.에서 선택한다
+스프링 부트 버전은 2.1.7 , 2.1.8., 2.1.9.에서 선택한다  
+  
+템플릿 엔진으로 mustache를 사용하므로 vscode에 mustache 플러그인 설치  

@@ -4,8 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import com.hjt.domain.posts.Posts;
 import com.hjt.domain.posts.PostsRepository;
 import com.hjt.web.dto.PostsSaveRequestDto;
