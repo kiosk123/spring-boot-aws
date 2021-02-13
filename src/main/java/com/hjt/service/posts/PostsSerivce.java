@@ -1,7 +1,11 @@
 package com.hjt.service.posts;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.hjt.domain.posts.Posts;
 import com.hjt.domain.posts.PostsRepository;
+import com.hjt.web.dto.PostsListResponseDto;
 import com.hjt.web.dto.PostsResponseDto;
 import com.hjt.web.dto.PostsSaveRequestDto;
 import com.hjt.web.dto.PostsUpdateRequestDto;
@@ -34,5 +38,9 @@ public class PostsSerivce {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id = " + id));
 		return new PostsResponseDto(posts);
 	}
-    
+
+	@Transactional(readOnly = true)
+	public List<PostsListResponseDto> findAllDesc() {
+		return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
+	}
 }
